@@ -45,8 +45,6 @@ public class Categories {
 
     public List<Product> getProducts() {
         return products;
-
-
     }
 
     public void setProducts(List<Product> products) {
