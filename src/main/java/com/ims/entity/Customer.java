@@ -24,6 +24,7 @@ public class Customer {
 
 
     public Customer() {
+
     }
 
     public Customer(Long customerId, String customerName, String customerNumber, List<Sale> sales) {
