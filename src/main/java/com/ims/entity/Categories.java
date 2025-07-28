@@ -50,4 +50,5 @@ public class Categories {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+    //hello
 }
