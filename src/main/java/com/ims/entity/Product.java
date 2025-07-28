@@ -1,53 +1,72 @@
 package com.ims.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "product")
 public class Product {
 
     @Id
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "product_id")
+    private Long productId;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "product_name")
+    private String productName;
 
     @ManyToOne
-    @JoinColumn(name = "c_id")
+    @JoinColumn(name = "categories_id")
     private Categories categories;
 
     @Column(name = "price")
     private Double price;
 
+    @Column(name = "sku")
+    private String sku;//Stock keeping unit
+
+
     @Column(name = "quantity")
     private Integer quantity;
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
 
     public Product() {
     }
 
-    public Product(Long id, String name, Categories categories, Double price, Integer quantity) {
-        this.id = id;
-        this.name = name;
+    public Product(Long productId, String productName, Categories categories, Double price, String sku, Integer quantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.productId = productId;
+        this.productName = productName;
         this.categories = categories;
         this.price = price;
+        this.sku = sku;
         this.quantity = quantity;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public Long getId() {
-        return id;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Categories getCategories() {
@@ -66,11 +85,35 @@ public class Product {
         this.price = price;
     }
 
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
