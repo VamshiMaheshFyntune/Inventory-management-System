@@ -16,7 +16,7 @@ public class SalesItem {
 
     @ManyToOne()
     @JoinColumn(name = "product_id")
-    private Long productId;
+    private Product product;
 
     @Column(name = "quantity")
     private Integer quantity;
@@ -24,10 +24,10 @@ public class SalesItem {
     public SalesItem() {
     }
 
-    public SalesItem(Long salesItemId, Sale sale, Long productId, Integer quantity) {
+    public SalesItem(Long salesItemId, Sale sale, Product product, Integer quantity) {
         this.salesItemId = salesItemId;
         this.sale = sale;
-        this.productId = productId;
+        this.product = product;
         this.quantity = quantity;
     }
 
@@ -47,12 +47,12 @@ public class SalesItem {
         this.sale = sale;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Product getProductId() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProductId(Product product) {
+        this.product = product;
     }
 
     public Integer getQuantity() {
