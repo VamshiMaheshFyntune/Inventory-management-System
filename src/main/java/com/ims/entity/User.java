@@ -1,14 +1,21 @@
 package com.ims.entity;
 
 import com.ims.enums.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "users")
 public class User {
+    @Column(name = "user_id")
     private Long id;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
 
     @Enumerated(EnumType.STRING)
     private Role role;
