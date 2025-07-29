@@ -32,7 +32,7 @@ public class SalesItem {
         this.quantity = quantity;
     }
 
-    public Long getSalesItemId() {
+    public Long getSalesItemId()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {
         return salesItemId;
     }
 

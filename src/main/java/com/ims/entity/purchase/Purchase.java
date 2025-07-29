@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 @Table(name = "purchases")
 public class Purchase {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id")
     private Long purchaseId;
 
@@ -27,4 +29,55 @@ public class Purchase {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "received_by", nullable = false)
     private User receivedBy;
+
+    public Purchase() {
+    }
+
+    public Purchase(Long purchaseId, BigDecimal totalAmount, LocalDateTime createdAt, Supplier supplier, User receivedBy) {
+        this.purchaseId = purchaseId;
+        this.totalAmount = totalAmount;
+        this.createdAt = createdAt;
+        this.supplier = supplier;
+        this.receivedBy = receivedBy;
+    }
+
+    public Long getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public User getReceivedBy() {
+        return receivedBy;
+    }
+
+    public void setReceivedBy(User receivedBy) {
+        this.receivedBy = receivedBy;
+    }
 }

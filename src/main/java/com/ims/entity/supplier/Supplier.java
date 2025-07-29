@@ -1,14 +1,17 @@
 package com.ims.entity.supplier;
 
+import com.ims.entity.purchase.Purchase;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "suppliers")
 public class Supplier {
 
+    @Id
     @Column(name = "supplier_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +27,16 @@ public class Supplier {
     private String address;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @OneToMany(mappedBy = "supplier")
+    private List<Purchase> purchases;
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
 
     public Long getId() {
         return id;
