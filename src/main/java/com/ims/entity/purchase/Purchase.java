@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 public class Purchase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id")
     private Long purchaseId;
 
