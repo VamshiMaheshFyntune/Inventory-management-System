@@ -17,8 +17,8 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @ManyToOne
-    @JoinColumn(name = "categories_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categories_id",nullable = false)
     private Categories categories;
 
     @Column(name = "price")
@@ -27,9 +27,9 @@ public class Product {
     @Column(name = "sku")
     private String sku;//Stock keeping unit
 
-
     @Column(name = "quantity")
     private Integer quantity;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;

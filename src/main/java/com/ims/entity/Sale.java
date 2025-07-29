@@ -15,8 +15,8 @@ public class Sale {
     @Column(name = "sale_id")
     private Long saleId;
 
-    @ManyToOne()
-    @JoinColumn(name = "customer_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id",nullable = false)
     private Customer customer;
 
     @CreationTimestamp

@@ -10,8 +10,8 @@ public class SalesItem {
     @Column(name = "sales_item_id")
     private Long salesItemId;
 
-    @ManyToOne()
-    @JoinColumn(name = "sale_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sale_id",nullable = false)
     private Sale sale;
 
     @ManyToOne()
