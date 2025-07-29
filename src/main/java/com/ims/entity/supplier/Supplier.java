@@ -15,18 +15,25 @@ public class Supplier {
     @Column(name = "supplier_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "supplier_name")
     private String supplierName;
+
     @Column(name = "contact_name")
     private String contactName;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "phone")
     private BigDecimal phone;
+
     @Column(name = "address")
     private String address;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
     @OneToMany(mappedBy = "supplier")
     private List<Purchase> purchases;
 
