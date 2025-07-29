@@ -1,5 +1,6 @@
-package com.ims.entity;
+package com.ims.entity.sale;
 
+import com.ims.entity.product.Product;
 import jakarta.persistence.*;
 
 @Entity

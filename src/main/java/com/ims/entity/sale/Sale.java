@@ -1,10 +1,10 @@
-package com.ims.entity;
+package com.ims.entity.sale;
 
+import com.ims.entity.customer.Customer;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
