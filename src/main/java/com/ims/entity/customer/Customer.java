@@ -1,8 +1,8 @@
-package com.ims.entity;
+package com.ims.entity.customer;
 
+import com.ims.entity.sale.Sale;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

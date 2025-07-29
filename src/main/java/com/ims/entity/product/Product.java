@@ -1,5 +1,6 @@
-package com.ims.entity;
+package com.ims.entity.product;
 
+import com.ims.entity.categories.Categories;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

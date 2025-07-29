@@ -1,6 +1,6 @@
 package com.ims.repository;
 
-import com.ims.entity.Sale;
+import com.ims.entity.sale.Sale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
