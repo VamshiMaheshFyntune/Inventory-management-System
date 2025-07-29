@@ -1,14 +1,14 @@
 package com.ims.entity.product;
 
-import com.ims.entity.categories.Categories;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -19,11 +19,11 @@ public class Product {
     private String productName;
 
     @ManyToOne
-    @JoinColumn(name = "categories_id")
+    @JoinColumn(name = "category_id")
     private Categories categories;
 
     @Column(name = "price")
-    private Double price;
+    private BigDecimal price;
 
     @Column(name = "sku")
     private String sku;//Stock keeping unit
@@ -43,7 +43,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long productId, String productName, Categories categories, Double price, String sku, Integer quantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Product(Long productId, String productName, Categories categories, BigDecimal  price, String sku, Integer quantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.productId = productId;
         this.productName = productName;
         this.categories = categories;
@@ -78,11 +78,11 @@ public class Product {
         this.categories = categories;
     }
 
-    public Double getPrice() {
+    public BigDecimal  getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal  price) {
         this.price = price;
     }
 

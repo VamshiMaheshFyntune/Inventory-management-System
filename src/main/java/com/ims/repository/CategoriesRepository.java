@@ -1,6 +1,6 @@
 package com.ims.repository;
 
-import com.ims.entity.categories.Categories;
+import com.ims.entity.product.Categories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
