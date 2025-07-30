@@ -21,7 +21,7 @@ description TEXT,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE products (
+CREATE TABLE product (
 product_id BIGSERIAL  PRIMARY KEY,
 product_name VARCHAR(255),
 category_id BIGINT,
@@ -71,7 +71,7 @@ FOREIGN KEY (purchase_id)
 REFERENCES purchases(purchase_id),
 CONSTRAINT fk_product
 FOREIGN KEY (product_id)
-REFERENCES products(product_id)
+REFERENCES product(product_id)
 );
 
 CREATE TABLE sales (
@@ -94,6 +94,6 @@ FOREIGN KEY (sale_id)
 REFERENCES sales(sale_id),
 CONSTRAINT fk_product
 FOREIGN KEY (product_id)
-REFERENCES products(product_id)
+REFERENCES product(product_id)
 );
 

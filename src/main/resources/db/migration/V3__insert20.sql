@@ -106,7 +106,6 @@ INSERT INTO product (product_id, product_name, categories_id, price, sku, quanti
 
 -- Insert purchases
 INSERT INTO purchases (purchase_id, total_amount, created_at, supplier_id, received_by) VALUES
-  (1, 110000.00, CURRENT_TIMESTAMP, 1, 1),
   (2, 24000.00, CURRENT_TIMESTAMP, 2, 3),
     (3, 104000.00, CURRENT_TIMESTAMP, 1, 4),
     (4, 1800.00, CURRENT_TIMESTAMP, 2, 5),
@@ -125,11 +124,11 @@ INSERT INTO purchases (purchase_id, total_amount, created_at, supplier_id, recei
     (17, 3800.00, CURRENT_TIMESTAMP, 1, 18),
     (18, 3000.00, CURRENT_TIMESTAMP, 2, 19),
     (19, 18500.00, CURRENT_TIMESTAMP, 1, 20),
-    (20, 8500.00, CURRENT_TIMESTAMP, 2, 3);
+    (20, 8500.00, CURRENT_TIMESTAMP, 2, 3),
+      (21, 110000.00, CURRENT_TIMESTAMP, 1, 1);
 
 -- Insert purchase_item
 INSERT INTO purchase_item (id, purchase_id, product_id, quantity, price) VALUES
-  (1, 1, 1, 2, 55000.00),
    (2, 2, 3, 2, 12000.00),
     (3, 3, 5, 2, 52000.00),
     (4, 4, 7, 2, 900.00),
@@ -148,11 +147,11 @@ INSERT INTO purchase_item (id, purchase_id, product_id, quantity, price) VALUES
     (17, 17, 8, 2, 1900.00),
     (18, 18, 10, 1, 3000.00),
     (19, 19, 20, 2, 9250.00),
-    (20, 20, 9, 3, 2833.33);
+    (20, 20, 9, 3, 2833.33),
+    (1, 1, 1, 2, 55000.00);
 
 -- Insert sales
 INSERT INTO sales (sale_id, customer_id, created_at) VALUES
-  (1, 1, CURRENT_TIMESTAMP),
   (2, 2, CURRENT_TIMESTAMP),
     (3, 3, CURRENT_TIMESTAMP),
     (4, 4, CURRENT_TIMESTAMP),
@@ -171,11 +170,11 @@ INSERT INTO sales (sale_id, customer_id, created_at) VALUES
     (17, 17, CURRENT_TIMESTAMP),
     (18, 18, CURRENT_TIMESTAMP),
     (19, 19, CURRENT_TIMESTAMP),
-    (20, 20, CURRENT_TIMESTAMP);
+    (20, 20, CURRENT_TIMESTAMP),
+      (21, 1, CURRENT_TIMESTAMP);
 
 -- Insert sales_items
 INSERT INTO sales_items (sales_item_id, sale_id, product_id, quantity) VALUES
-  (1, 1, 1, 1),
   (2, 2, 3, 1),
     (3, 3, 4, 2),
     (4, 4, 5, 1),
@@ -194,4 +193,5 @@ INSERT INTO sales_items (sales_item_id, sale_id, product_id, quantity) VALUES
     (17, 17, 18, 1),
     (18, 18, 19, 1),
     (19, 19, 20, 1),
-    (20, 20, 7, 2);
+    (20, 20, 7, 2),
+    (21, 1, 1, 1);
