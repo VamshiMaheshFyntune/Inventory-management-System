@@ -36,5 +36,6 @@ public class DashbordService {
     public List<Product> getProductByCategory(String categoriesName) {
        List<Product> getdata= productRepository.findByCategories(categoriesName);
         return getdata;
+
     }
 }

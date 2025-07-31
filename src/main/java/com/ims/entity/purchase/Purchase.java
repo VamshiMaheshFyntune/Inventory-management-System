@@ -1,5 +1,6 @@
 package com.ims.entity.purchase;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ims.entity.supplier.Supplier;
 import com.ims.entity.user.User;
 import jakarta.persistence.*;
@@ -23,10 +24,12 @@ public class Purchase {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "supplier_id", nullable = false)
+    @JsonIgnore
     private Supplier supplier;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "received_by", nullable = false)
+    @JsonIgnore
     private User receivedBy;
 
     public Purchase() {

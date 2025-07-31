@@ -1,5 +1,6 @@
 package com.ims.entity.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ims.entity.sale.Sale;
 import jakarta.persistence.*;
 
@@ -20,6 +21,7 @@ public class Customer {
     private String customerNumber;
 
     @OneToMany(mappedBy = "customer")
+    @JsonIgnore
     private List<Sale> sales;
 
 

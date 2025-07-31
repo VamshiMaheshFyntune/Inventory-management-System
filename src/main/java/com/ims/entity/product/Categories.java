@@ -1,5 +1,6 @@
 package com.ims.entity.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -18,6 +19,7 @@ public class Categories {
     private String categoriesName;
 
     @OneToMany(mappedBy = "categories")
+    @JsonIgnore
     private List<Product> products;
 
     @Column(name = "description")

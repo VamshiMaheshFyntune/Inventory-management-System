@@ -1,5 +1,6 @@
 package com.ims.entity.sale;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ims.entity.product.Product;
 import jakarta.persistence.*;
 
@@ -13,10 +14,12 @@ public class SalesItem {
 
     @ManyToOne()
     @JoinColumn(name = "sale_id")
+    @JsonIgnore
     private Sale sale;
 
     @ManyToOne()
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     private Product product;
 
     @Column(name = "quantity")

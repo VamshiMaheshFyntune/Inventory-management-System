@@ -1,5 +1,6 @@
 package com.ims.entity.supplier;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ims.entity.purchase.Purchase;
 import jakarta.persistence.*;
 
@@ -34,6 +35,7 @@ public class Supplier {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "supplier")
+    @JsonIgnore
     private List<Purchase> purchases;
 
     public List<Purchase> getPurchases() {

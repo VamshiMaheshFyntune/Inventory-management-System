@@ -1,5 +1,6 @@
 package com.ims.entity.purchase;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ims.entity.product.Product;
 import jakarta.persistence.*;
 
@@ -15,10 +16,12 @@ public class PurchaseItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "purchase_id")
+    @JsonIgnore
     private Purchase purchase;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     private Product product;
 
     private Integer quantity;

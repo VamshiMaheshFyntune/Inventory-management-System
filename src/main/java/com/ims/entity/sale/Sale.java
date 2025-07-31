@@ -1,5 +1,6 @@
 package com.ims.entity.sale;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ims.entity.customer.Customer;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,6 +18,7 @@ public class Sale {
 
     @ManyToOne()
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 
     @CreationTimestamp
@@ -24,6 +26,7 @@ public class Sale {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "sale")
+    @JsonIgnore
     private List<SalesItem> items ;
 
 

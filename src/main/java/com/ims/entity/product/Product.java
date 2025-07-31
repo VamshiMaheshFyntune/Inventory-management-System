@@ -1,5 +1,6 @@
 package com.ims.entity.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -20,6 +21,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "categories_id")
+    @JsonIgnore
     private Categories categories;
 
     @Column(name = "price")
@@ -31,6 +33,7 @@ public class Product {
 
     @Column(name = "quantity")
     private Integer quantity;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
