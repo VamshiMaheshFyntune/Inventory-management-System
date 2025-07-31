@@ -1,6 +1,8 @@
 package com.ims.controller;
 
 import com.ims.entity.product.Product;
+import com.ims.entity.user.User;
+import com.ims.enums.Role;
 import com.ims.repository.UserRepository;
 import com.ims.service.DashbordService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,4 +27,21 @@ public class DashbordController {
        List<Product>  allProduct=dashbordService.getProductByCategory(categoriesName);
        return allProduct;
     }
+
+    @GetMapping("/getUserByRole")
+    public List<User> getUsersByRole(@RequestParam Role role){
+        List<User> users=dashbordService.getUsersByRole(role);
+        return users;
+    }
+
+    @GetMapping("/getProductUsingQuantity")
+    public List<Product> getProductByQuantity(@RequestParam Integer quantity){
+       List<Product>  Product=dashbordService.getProductUsingQuantity(quantity);
+       return  Product;
+    }
+
+
+
+
+
 }

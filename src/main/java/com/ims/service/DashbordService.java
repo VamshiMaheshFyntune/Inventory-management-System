@@ -1,6 +1,8 @@
 package com.ims.service;
 
 import com.ims.entity.product.Product;
+import com.ims.entity.user.User;
+import com.ims.enums.Role;
 import com.ims.repository.*;
 import org.springframework.stereotype.Service;
 
@@ -34,8 +36,18 @@ public class DashbordService {
     }
 
     public List<Product> getProductByCategory(String categoriesName) {
-       List<Product> getdata= productRepository.findByCategories(categoriesName);
+       List<Product> getdata= productRepository.findBycategories(categoriesName);
         return getdata;
 
+    }
+
+    public List<User> getUsersByRole(Role role) {
+        List<User> users=userRepository.findByRole(role);
+        return users;
+    }
+
+    public List<Product> getProductUsingQuantity(Integer quantity) {
+        List<Product> Product=productRepository.findByQuantity(quantity);
+        return Product;
     }
 }

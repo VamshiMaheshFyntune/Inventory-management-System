@@ -1,5 +1,5 @@
 package com.ims.enums;
 
 public enum Role {
-    ADMIN,MANAGER,STAFF
+    ADMIN,MANAGER,STAFF,SUPPORT
 }

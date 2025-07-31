@@ -84,7 +84,7 @@ INSERT INTO customers (customer_id, customer_name, customer_number) VALUES
     (20, 'Sneha Sharma', '9000000020');
 
 -- Insert products
-INSERT INTO product (product_id, product_name, categories_id, price, sku, quantity, created_at) VALUES
+INSERT INTO product (product_id, product_name, category_id, price, sku, quantity, created_at) VALUES
   (3, 'Nike Running Shoes', 4, 4500.00, 'SKU-NR-003', 15, CURRENT_TIMESTAMP),
   (4, 'Samsung Galaxy S21', 9, 70000.00, 'SKU-SG-004', 20, CURRENT_TIMESTAMP),
   (5, 'Sony Headphones', 1, 8000.00, 'SKU-SH-005', 30, CURRENT_TIMESTAMP),
