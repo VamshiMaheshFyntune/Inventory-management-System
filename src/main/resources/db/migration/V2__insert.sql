@@ -28,7 +28,7 @@ INSERT INTO purchases (purchase_id, total_amount, created_at, supplier_id, recei
   (1, 110000.00, CURRENT_TIMESTAMP, 1, 1);
 
 -- Insert purchase_item
-INSERT INTO purchase_item (id, purchase_id, product_id, quantity, price) VALUES
+INSERT INTO purchase_items (id, purchase_id, product_id, quantity, price) VALUES
   (1, 1, 1, 2, 55000.00);
 
 -- Insert sales

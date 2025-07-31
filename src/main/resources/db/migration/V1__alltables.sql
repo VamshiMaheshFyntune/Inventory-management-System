@@ -24,14 +24,14 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE product (
 product_id BIGSERIAL  PRIMARY KEY,
 product_name VARCHAR(255),
-category_id BIGINT,
+categories_id BIGINT,
 price NUMERIC(10, 2),
 sku VARCHAR(100),
 quantity INTEGER,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 CONSTRAINT fk_category
-FOREIGN KEY (category_id)
+FOREIGN KEY (categories_id)
 REFERENCES categories(categories_id)
 );
 
