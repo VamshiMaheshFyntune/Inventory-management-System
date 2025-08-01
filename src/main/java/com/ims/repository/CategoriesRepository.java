@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface CategoriesRepository extends JpaRepository<Categories,Long> {
 
-    @Query("select c from Categories c order by ASC")
+    @Query("select c from Categories c order by c.categoriesName ASC")
     List<Categories> getcategoriesByInASC();
 }

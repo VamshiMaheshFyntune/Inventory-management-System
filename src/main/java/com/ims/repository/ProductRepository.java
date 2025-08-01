@@ -20,8 +20,14 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     @Query("select p from Product p where quantity<:qua")
     List<Product> findByQuantity(@Param("qua") Integer quantity);
 
-    @Query("select p.productName,c.categories_name from Product p left join Categories c ")
-    List<String> findAllProductNameAndCategoriesName();
+//    @Query("select p.productName,c.categories_name from Product p left join Categories c ")
+    @Query(value = "select product.product_name,categories_name from product left join categories",nativeQuery = true)
+    List<Object[]> findAllProductNameAndCategoriesName();
+
+    @Query("select p.categories.categoriesName,count(p) from Product p  group by categories.categoriesName")
+    List<String> findAllCategoriesAndCountOfProduct();
+
+
 
 
 }
