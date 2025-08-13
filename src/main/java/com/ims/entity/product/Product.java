@@ -1,12 +1,14 @@
 package com.ims.entity.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ims.entity.sale.SalesItem;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -20,7 +22,7 @@ public class Product {
     private String productName;
 
     @ManyToOne
-    @JoinColumn(name = "categories_id")
+    @JoinColumn(name = "category_id")
     @JsonIgnore
     private Categories categories;
 
@@ -42,11 +44,14 @@ public class Product {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @OneToMany(mappedBy = "product")
+    private List<SalesItem> salesItems;
+
 
     public Product() {
     }
 
-    public Product(Long productId, String productName, Categories categories, BigDecimal  price, String sku, Integer quantity, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Product(Long productId, String productName, Categories categories, BigDecimal price, String sku, Integer quantity, LocalDateTime createdAt, LocalDateTime updatedAt, List<SalesItem> salesItems) {
         this.productId = productId;
         this.productName = productName;
         this.categories = categories;
@@ -55,6 +60,7 @@ public class Product {
         this.quantity = quantity;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.salesItems = salesItems;
     }
 
     public Long getProductId() {
@@ -81,11 +87,11 @@ public class Product {
         this.categories = categories;
     }
 
-    public BigDecimal  getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal  price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -119,5 +125,13 @@ public class Product {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<SalesItem> getSalesItems() {
+        return salesItems;
+    }
+
+    public void setSalesItems(List<SalesItem> salesItems) {
+        this.salesItems = salesItems;
     }
 }

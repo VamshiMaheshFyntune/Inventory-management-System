@@ -8,10 +8,7 @@ import com.ims.enums.Role;
 import com.ims.repository.UserRepository;
 import com.ims.service.DashbordService;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -99,6 +96,14 @@ public class DashbordController {
     @GetMapping("/getallPurchaseOfUser")
     public List<Object[]> getallPurchaseOfUser(@RequestParam String username){
         return dashbordService.getallPurchaseOfUser(username);
+    }
+
+
+    @PostMapping("/findAllInformationByUserName ")
+    public String getExcelSheetOfUser(@RequestParam(value = "page" ,defaultValue = "0",required = false) Integer page,
+                                      @RequestParam(value = "pageSize",defaultValue = "5",required = false)Integer pagesize,
+                                      @RequestParam String username ){
+        return dashbordService.getExportdata(username,page,pagesize);
     }
 
 }

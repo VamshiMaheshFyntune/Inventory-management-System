@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class DashbordService {
@@ -92,6 +93,7 @@ public class DashbordService {
 
     public List<Object[]> getAllSupplierAndPurchese() {
         return supplierRepostiory.findListOfSuppliersAndPurchaseCount();
+
     }
 
 
@@ -106,5 +108,14 @@ public class DashbordService {
 
     public List<Object[]> getallPurchaseOfUser(String username) {
         return purchaseRepository.findPurchaseByUser(username);
+    }
+
+    public String getExportdata(String username, Integer page, Integer pagesize) {
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("user is not present"));
+        Long userId=user.getId();
+        List<Object[]> userAllInfornamtion = userRepository.getUserAllInfornamtion(userId);
+        System.out.println(userAllInfornamtion);
+
+       return null;
     }
 }
